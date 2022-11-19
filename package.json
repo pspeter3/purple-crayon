@@ -1,6 +1,6 @@
 {
   "name": "purple-crayon",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Creative coding library for personal projects",
   "type": "module",
   "exports": {

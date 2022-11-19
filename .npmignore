@@ -1,0 +1,8 @@
+.DS_Store
+.github
+coverage
+src
+tsconfig.json
+dist/**/*.test.*
+*.tgz
+README.md

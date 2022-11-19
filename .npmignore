@@ -1,5 +1,8 @@
 .DS_Store
+.eslintcache
 .github
+.tsbuildinfo
+.wireit
 coverage
 src
 tsconfig.json

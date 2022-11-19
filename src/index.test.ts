@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
-import test from "node:test";
+import { describe, it } from "node:test";
 import { NAME } from "./index.js";
 
-test("NAME", () => {
-  assert.equal(NAME, "purple-crayon");
+describe("purple-crayon", () => {
+  it("should have a name", () => {
+    assert.equal(NAME, "purple-crayon");
+  });
 });

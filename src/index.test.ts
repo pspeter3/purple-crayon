@@ -3,5 +3,5 @@ import test from "node:test";
 import { NAME } from "./index.js";
 
 test("NAME", () => {
-    assert.equal(NAME, "purple-crayon")
-})
+  assert.equal(NAME, "purple-crayon");
+});

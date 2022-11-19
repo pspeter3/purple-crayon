@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "compile": "wireit",
+    "format": "wireit",
     "spec": "wireit"
   },
   "repository": {
@@ -27,6 +28,14 @@
     "wireit": "^0.8.0"
   },
   "wireit": {
+    "format": {
+      "command": "prettier --write 'src/**/*' README.md",
+      "files": [
+        "src/**/*",
+        "README.md"
+      ],
+      "output": []
+    },
     "compile": {
       "command": "tsc --build --pretty",
       "clean": "if-file-deleted",

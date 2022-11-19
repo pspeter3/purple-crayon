@@ -39,7 +39,7 @@
       ]
     },
     "fix:format": {
-      "command": "prettier --cache --write 'src/**/*' README.md",
+      "command": "prettier --cache --write '.github/**/*' 'src/**/*' README.md",
       "dependencies": [
         "fix:lint"
       ]
@@ -67,8 +67,9 @@
       ]
     },
     "test:format": {
-      "command": "prettier --cache --check 'src/**/*' README.md",
+      "command": "prettier --cache --check '.github/**/*' 'src/**/*' README.md",
       "files": [
+        ".github/**/*",
         "src/**/*",
         "README.md",
         "node_modules/.cache/prettier/.prettier-cache"

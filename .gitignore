@@ -105,3 +105,6 @@ dist
 
 # TypeScript compilation
 lib/
+
+# WireIt cache
+.wireit/

@@ -5,8 +5,13 @@
   "type": "module",
   "scripts": {
     "compile": "wireit",
-    "format": "wireit",
-    "spec": "wireit"
+    "fix": "wireit",
+    "fix:format": "wireit",
+    "fix:lint": "wireit",
+    "test": "wireit",
+    "test:format": "wireit",
+    "test:lint": "wireit",
+    "test:spec": "wireit"
   },
   "repository": {
     "type": "git",
@@ -28,13 +33,19 @@
     "wireit": "^0.8.0"
   },
   "wireit": {
-    "format": {
-      "command": "prettier --write 'src/**/*' README.md",
-      "files": [
-        "src/**/*",
-        "README.md"
-      ],
-      "output": []
+    "fix": {
+      "dependencies": [
+        "fix:format"
+      ]
+    },
+    "fix:format": {
+      "command": "prettier --cache --write 'src/**/*' README.md",
+      "dependencies": [
+        "fix:lint"
+      ]
+    },
+    "fix:lint": {
+      "command": "eslint --fix --cache --cache-location .eslintcache 'src/**/*'"
     },
     "compile": {
       "command": "tsc --build --pretty",
@@ -48,7 +59,31 @@
         ".tsbuildinfo"
       ]
     },
-    "spec": {
+    "test": {
+      "dependencies": [
+        "test:format",
+        "test:lint",
+        "test:spec"
+      ]
+    },
+    "test:format": {
+      "command": "prettier --cache --check 'src/**/*' README.md",
+      "files": [
+        "src/**/*",
+        "README.md",
+        "node_modules/.cache/prettier/.prettier-cache"
+      ],
+      "output": []
+    },
+    "test:lint": {
+      "command": "eslint --color --cache --cache-location .eslintcache 'src/**/*'",
+      "files": [
+        "src/**/*",
+        ".eslintcache"
+      ],
+      "output": []
+    },
+    "test:spec": {
       "command": "node --test lib/",
       "files": [
         "lib/**.js"
@@ -58,5 +93,16 @@
         "compile"
       ]
     }
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "root": true
   }
 }

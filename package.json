@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "description": "Creative coding library for personal projects",
   "type": "module",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pspeter3/purple-crayon.git"
@@ -14,5 +13,8 @@
   "bugs": {
     "url": "https://github.com/pspeter3/purple-crayon/issues"
   },
-  "homepage": "https://github.com/pspeter3/purple-crayon#readme"
+  "homepage": "https://github.com/pspeter3/purple-crayon#readme",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
 }

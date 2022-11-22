@@ -1,6 +1,5 @@
 /**
- * Mixes two numbers together by alpha
- * Often called `lerp`
+ * Mixes two numbers together by alpha (lerp)
  * @param source The source number
  * @param target The target number
  * @param alpha The interpolation weight
@@ -8,6 +7,40 @@
  */
 export function mix(source: number, target: number, alpha: number): number {
   return source * (1.0 - alpha) + target * alpha;
+}
+
+/**
+ * Unmixes the value from source and target
+ * @param value The interpolated value
+ * @param source The source number
+ * @param target The target number
+ * @returns The interpolation weight
+ */
+export function unmix(value: number, source: number, target: number): number {
+  return (value - source) / (target - source);
+}
+
+/**
+ * Remixes a value to another spectrum
+ * @param value The current interpolated value
+ * @param currentSource The current source number
+ * @param currentTarget The current target number
+ * @param nextSource The next source number
+ * @param nextTarget The next target number
+ * @returns The next interpolated value
+ */
+export function remix(
+  value: number,
+  currentSource: number,
+  currentTarget: number,
+  nextSource: number,
+  nextTarget: number
+): number {
+  return mix(
+    nextSource,
+    nextTarget,
+    unmix(value, currentSource, currentTarget)
+  );
 }
 
 /**

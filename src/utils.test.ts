@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { clamp, mix, unmix } from "./utils.js";
+import { clamp, mix, remix, unmix } from "./utils.js";
 
 describe("utils", () => {
   describe("mix", () => {
@@ -28,6 +28,12 @@ describe("utils", () => {
 
     it("should work when middle", () => {
       assert.equal(unmix(1, 0, 2), 0.5);
+    });
+  });
+
+  describe("remix", () => {
+    it("should map the value appropriately", () => {
+      assert.equal(remix(1, 0, 2, 3, 5), 4);
     });
   });
 

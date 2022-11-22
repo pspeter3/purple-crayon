@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { clamp, mix } from "./utils.js";
+import { clamp, mix, unmix } from "./utils.js";
 
 describe("utils", () => {
   describe("mix", () => {
@@ -14,6 +14,20 @@ describe("utils", () => {
 
     it("should work when alpha is 0.5", () => {
       assert.equal(mix(0, 1, 0.5), 0.5);
+    });
+  });
+
+  describe("unmix", () => {
+    it("should work when source", () => {
+      assert.equal(unmix(0, 0, 2), 0);
+    });
+
+    it("should work when target", () => {
+      assert.equal(unmix(2, 0, 2), 1);
+    });
+
+    it("should work when middle", () => {
+      assert.equal(unmix(1, 0, 2), 0.5);
     });
   });
 

@@ -8,7 +8,7 @@
     "./utils.js": "./dist/utils.js"
   },
   "scripts": {
-    "compile": "wireit",
+    "build": "wireit",
     "fix": "wireit",
     "fix:format": "wireit",
     "fix:lint": "wireit",
@@ -37,6 +37,17 @@
     "wireit": "^0.8.0"
   },
   "wireit": {
+    "build": {
+      "command": "tsc --build --pretty",
+      "files": [
+        "src/**/*.ts",
+        "tsconfig.json"
+      ],
+      "output": [
+        "dist/**/*.{js,d.ts}",
+        ".tsbuildinfo"
+      ]
+    },
     "fix": {
       "dependencies": [
         "fix:format"
@@ -50,18 +61,6 @@
     },
     "fix:lint": {
       "command": "eslint --fix --cache --cache-location .eslintcache 'src/**/*'"
-    },
-    "compile": {
-      "command": "tsc --build --pretty",
-      "clean": "if-file-deleted",
-      "files": [
-        "src/**/*.ts",
-        "tsconfig.json"
-      ],
-      "output": [
-        "dist/**.{js,dts}",
-        ".tsbuildinfo"
-      ]
     },
     "test": {
       "dependencies": [
@@ -95,7 +94,7 @@
       ],
       "output": [],
       "dependencies": [
-        "compile"
+        "build"
       ]
     }
   },
@@ -109,5 +108,8 @@
       "@typescript-eslint"
     ],
     "root": true
+  },
+  "prettier": {
+    "tabWidth": 4
   }
 }

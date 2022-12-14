@@ -6,7 +6,7 @@
  * @returns The interpolated value
  */
 export function mix(source: number, target: number, alpha: number): number {
-  return source * (1.0 - alpha) + target * alpha;
+    return source * (1.0 - alpha) + target * alpha;
 }
 
 /**
@@ -17,7 +17,7 @@ export function mix(source: number, target: number, alpha: number): number {
  * @returns The interpolation weight
  */
 export function unmix(value: number, source: number, target: number): number {
-  return (value - source) / (target - source);
+    return (value - source) / (target - source);
 }
 
 /**
@@ -30,17 +30,17 @@ export function unmix(value: number, source: number, target: number): number {
  * @returns The next interpolated value
  */
 export function remix(
-  value: number,
-  currentSource: number,
-  currentTarget: number,
-  nextSource: number,
-  nextTarget: number
+    value: number,
+    currentSource: number,
+    currentTarget: number,
+    nextSource: number,
+    nextTarget: number
 ): number {
-  return mix(
-    nextSource,
-    nextTarget,
-    unmix(value, currentSource, currentTarget)
-  );
+    return mix(
+        nextSource,
+        nextTarget,
+        unmix(value, currentSource, currentTarget)
+    );
 }
 
 /**
@@ -51,5 +51,5 @@ export function remix(
  * @returns The clamped value
  */
 export function clamp(value: number, min: number, max: number): number {
-  return Math.min(max, Math.max(min, value));
+    return Math.min(max, Math.max(min, value));
 }

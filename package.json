@@ -1,6 +1,6 @@
 {
   "name": "purple-crayon",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Creative coding library for personal projects",
   "type": "module",
   "types": "./dist/*.d.ts",

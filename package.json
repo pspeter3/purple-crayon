@@ -1,12 +1,18 @@
 {
   "name": "purple-crayon",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Creative coding library for personal projects",
   "type": "module",
-  "types": "./dist/*.d.ts",
   "exports": {
     ".": "./dist/index.js",
     "./*.js": "./dist/*.js"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/*"
+      ]
+    }
   },
   "scripts": {
     "build": "wireit",

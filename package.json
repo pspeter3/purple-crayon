@@ -13,5 +13,12 @@
   "bugs": {
     "url": "https://github.com/pspeter3/purple-crayon/issues"
   },
-  "homepage": "https://github.com/pspeter3/purple-crayon#readme"
+  "homepage": "https://github.com/pspeter3/purple-crayon#readme",
+  "dependencies": {
+    "@react-router/node": "^7.1.5",
+    "isbot": "^5.1.22",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router": "^7.1.5"
+  }
 }

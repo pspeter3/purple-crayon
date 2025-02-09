@@ -4,8 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "wireit",
     "dev": "react-router dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "fix": "wireit",
+    "test": "wireit"
   },
   "repository": {
     "type": "git",
@@ -43,5 +45,65 @@
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.0.5",
     "wireit": "^0.14.11"
+  },
+  "wireit": {
+    "build": {
+      "command": "NODE_ENV=production react-router build"
+    },
+    "fix": {
+      "command": "prettier --cache --write '.github/workflows/*.yml' 'app/**/*' '*.{ts,md}'"
+    },
+    "test": {
+      "dependencies": [
+        "test:format",
+        "test:spec",
+        "test:types"
+      ]
+    },
+    "test:format": {
+      "command": "prettier --cache --check '.github/workflows/*.yml' 'app/**/*' '*.{ts,md}'",
+      "files": [
+        ".github/workflows/*.yml",
+        "app/**/*",
+        "*.{ts,md}"
+      ],
+      "output": []
+    },
+    "test:spec": {
+      "command": "vitest run",
+      "files": [
+        "app/**/*.{ts,tsx}"
+      ],
+      "output": []
+    },
+    "test:types": {
+      "command": "tsc",
+      "files": [
+        "app/**/*.{ts,tsx}",
+        "*.ts",
+        "tsconfig.json"
+      ],
+      "output": [],
+      "dependencies": [
+        "typegen"
+      ]
+    },
+    "typegen": {
+      "command": "react-router typegen",
+      "files": [
+        "app/routes.ts",
+        "app/routes/**/*.tsx",
+        "!app/routes/**/*.test.tsx"
+      ],
+      "output": [
+        ".react-router/**/*.d.ts"
+      ]
+    }
+  },
+  "prettier": {
+    "plugins": [
+      "prettier-plugin-organize-imports",
+      "prettier-plugin-tailwindcss"
+    ]
   }
 }

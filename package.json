@@ -1,0 +1,17 @@
+{
+  "name": "purple-crayon",
+  "description": "Creative side projects",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pspeter3/purple-crayon.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pspeter3/purple-crayon/issues"
+  },
+  "homepage": "https://github.com/pspeter3/purple-crayon#readme"
+}
